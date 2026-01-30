@@ -1,5 +1,8 @@
-# this is my first assignment
+    What is your understanding of DevOps and Cloud Engineering?
+    >>
+    DevOps - DevOps = developers and operations people working together smoothly.
 
-
-
-#assignment completed
+    
+Why you are starting learning DevOps & Cloud?
+Where do you want to reach?
+How you will stay consistent every single day?
