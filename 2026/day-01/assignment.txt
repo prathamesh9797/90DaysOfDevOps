@@ -1,8 +1,42 @@
     What is your understanding of DevOps and Cloud Engineering?
     >>
     DevOps - DevOps = developers and operations people working together smoothly.
+    Before DevOps:
+
+Developers wrote code
+Operations ran servers
+They blamed each other when things broke 😅
+With DevOps:
+Everything is automated
+Code moves from “written” → “live on the internet” quickly and safely
+Fewer errors, faster updates
+
+A DevOps engineer:
+Automates deployments (no manual copying files)
+Monitors systems so problems are caught early
+Makes sure updates don’t break the app
+Helps teams release new features faster
+Real-life example:
+A well-organized kitchen where chefs cook and the staff clean and restock at the same time—no chaos.
+
+Cloud engineering = running computers on the internet instead of in your office.
+Instead of buying and maintaining physical servers, you rent them from companies like AWS, Azure, or Google Cloud.
+
+A cloud engineer:
+Sets up servers on the internet
+Stores data safely online
+Makes sure apps/websites are fast and available 24/7
+Scales things up when more users show up (and down when they leave)
 
     
 Why you are starting learning DevOps & Cloud?
+>> I want to be a successful DevOps Engineer
+
 Where do you want to reach?
+>> I want to reach to the level i Left my previous job first 
+Then i want to be a part of my same devops team at citi bank
+
+
 How you will stay consistent every single day?
+>> I will be dedicating few hours of day to learning with focus
+    I will be completing tasks , assignments and be a proactive member of this 90DaysDevOps Journey.
