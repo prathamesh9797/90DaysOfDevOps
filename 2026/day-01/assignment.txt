@@ -5,7 +5,7 @@
 
 Developers wrote code
 Operations ran servers
-They blamed each other when things broke 😅
+They blamed each other when things broke 
 With DevOps:
 Everything is automated
 Code moves from “written” → “live on the internet” quickly and safely
