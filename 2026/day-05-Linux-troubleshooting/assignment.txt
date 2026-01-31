@@ -1,0 +1,34 @@
+>>>> Run and record output for **at least 8 commands** (save snippets in your runbook) 
+
+prathamesh@localhost:/home$ pwd
+/home
+prathamesh@localhost:/home$ ls
+devops  prathamesh
+prathamesh@localhost:/home$ cd devops
+prathamesh@localhost:/home/devops$ ls
+prathamesh@localhost:/home/devops$ sudo touch notes.txt
+prathamesh@localhost:/home/devops$ ls
+notes.txt
+prathamesh@localhost:/home/devops$ mv notes.txt prathamesh
+mv: cannot move 'notes.txt' to 'prathamesh': Permission denied
+prathamesh@localhost:/home/devops$ sudo mv notes.txt prathamesh
+prathamesh@localhost:/home/devops$ ls
+prathamesh
+prathamesh@localhost:/home/devops$ ls
+prathamesh
+prathamesh@localhost:/home/devops$ cd prathamesh
+bash: cd: prathamesh: Not a directory
+prathamesh@localhost:/home/devops$ cd ..
+prathamesh@localhost:/home$ ls
+devops  prathamesh
+prathamesh@localhost:/home$ cd prathamesh
+prathamesh@localhost:~$ ls
+Desktop  Documents  Downloads  Music  myworld  Personal  Pictures  Public  Python  snap  Templates  Videos
+prathamesh@localhost:~$ cd Documents
+prathamesh@localhost:~/Documents$ ls
+90DaysOfDevOps  python_practice
+prathamesh@localhost:~/Documents$ cd ..
+prathamesh@localhost:~$ rm -r notes.txt
+rm: cannot remove 'notes.txt': No such file or directory
+prathamesh@localhost:~$ cd myworld
+prathamesh@localhost:~/myworld$ ls
