@@ -1,0 +1,41 @@
+-    The core components of Linux (kernel, user space, init/systemd)
+>>  Kernel >> is the heart of the linux OS
+    Its a Onion like structure ASK outermost layer is application > Shell > kernel > Hradware
+    only Kernel directly interacts with hardware, it is the first part loaded during boot
+    and remains in memory until shutdown.
+
+    Responsibilities > Memory Management , Device Management , File System Management
+                        Networking
+
+    User Space >> is where users and applications run ,
+                    programs here cannot access hardware directly
+
+        User space Includes Shells > ex.> bash,zsh,shutdown
+                            System Libraries, core utilities( ls,cp,mv,grep,cat)
+                            Applications (editors , browsers, servers,containers)
+                            
+        User space ensures security and stability by isolating applications from Hradware
+
+
+- How processes are created and managed
+    >> process is a set of instruction loaded in memory
+        ps-ef > to list all the process running 
+        ps    > to report a snapshot of current process
+
+    UID>userID  PID>processID   PPID>parentprocessID    C>cpu    STIME>starttime    TTY>terminal type
+    TIME>cpu time taken by process  CMD>command which started process
+
+    No two process have same PID
+
+
+- What systemd does and why it matters
+>> systemd >> first process which is having PID1
+
+    systemd will decide which process will get start while booting servers
+    and it is started directly by the kernel.
+    due to systemd booot time is very less
+
+    RHEL 5,6 were having init > first process having PID1 RHEL 5,6 were having high boot time
+
+    systemd features >
+    Parallelization , logging,Dependencies
