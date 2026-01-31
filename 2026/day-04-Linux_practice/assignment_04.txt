@@ -1,0 +1,62 @@
+2 process commands** (`ps`, `top`,
+>>>>OutPut for TOP Command top - display Linux processes | htop - 
+
+top - 16:01:44 up 4 days,  8:33,  1 user,  load average: 0.20, 0.28, 0.18
+Tasks: 397 total,   1 running, 396 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.4 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :  15703.0 total,   3718.6 free,   9541.0 used,   6357.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6162.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                        
+    313 root     -51   0       0      0      0 S   3.3   0.0   4:10.82 irq/141-SYNA32C6:00                            
+   2467 pratham+  20   0 6330172 430060 160800 S   2.0   2.7  56:47.19 gnome-shell                                    
+   3323 pratham+  20   0   49.2g 272088 152480 S   0.7   1.7  45:34.24 chrome                                         
+  92241 pratham+  20   0 3167980  77404  60864 S   0.7   0.5   0:01.35 gjs                                            
+
+>>>>OutPut for ps command ps>report a snapshot of current process
+
+prathamesh@localhost:~$ ps
+    PID TTY          TIME CMD
+  10422 pts/2    00:00:00 bash
+  93173 pts/2    00:00:00 ps
+
+>>>>2 service commands** (`systemctl status`, `systemctl list-units`,
+
+prathamesh@localhost:~$ systemctl status
+● localhost
+    State: running
+    Units: 645 loaded (incl. loaded aliases)
+     Jobs: 0 queued
+   Failed: 0 units
+    Since: Tue 2026-01-27 07:27:52 IST; 4 days ago
+  systemd: 255.4-1ubuntu8.12
+   CGroup: /
+           ├─init.scope
+           │ └─1 /sbin/init splash
+           ├─system.slice
+           │ ├─ModemManager.service
+           │ │ └─1210 /usr/sbin/ModemManager
+
+
+prathamesh@localhost:~$ systemctl list-units
+  UNIT                                                                                   LOAD   ACTIVE SUB       DESC>
+  proc-sys-fs-binfmt_misc.automount                                                      loaded active running   Arbi>
+  sys-devices-LNXSYSTM:00-LNXSYBUS:00-INTC6001:00-tpm-tpm0.device                        loaded active plugged   /sys>
+  sys-devices-LNXSYSTM:00-LNXSYBUS:00-INTC6001:00-tpmrm-tpmrm0.device                    loaded active plugged   /sys>
+  sys-devices-pci0000:00-0000:00:02.0-drm-card1-card1\x2deDP\x2d1-intel_backlight.device loaded active plugged   /sys>
+  sys-devices-pci0000:00-0000:00:06.0-0000:01:00.0-nvme-nvme0-nvme0n1-nvme0n1p1.device   loaded active plugged   MTFD>
+
+
+>>>> 2 log commands** (`journalctl -u <service>`, `tail -n 50`
+
+prathamesh@localhost:/var/log$ journalctl -u sssd
+Feb 23 12:37:07 prathamesh-HP-Pavilion-Plus-Laptop-14-eh0xxx systemd[1]: sssd.service - System Security Services Daem>
+-- Boot fad8d18cc57f40a28c5a4a57cbcf711d --
+Feb 24 02:09:16 localhost systemd[1]: sssd.service - System Security Services Daemon was skipped because no trigger c>
+
+prathamesh@localhost:/var/log$ journalctl -u dmesg
+Feb 23 12:37:07 prathamesh-HP-Pavilion-Plus-Laptop-14-eh0xxx systemd[1]: Started dmesg.service - Save initial kernel >
+Feb 23 12:37:12 prathamesh-HP-Pavilion-Plus-Laptop-14-eh0xxx systemd[1]: dmesg.service: Deactivated successfully.
+-- Boot fad8d18cc57f40a28c5a4a57cbcf711d --
+Feb 24 02:09:15 localhost systemd[1]: Started dmesg.service - Save initial kernel messages after boot.
+Feb 24 02:09:21 localhost systemd[1]: dmesg.service: Deactivated successfully.
