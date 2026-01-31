@@ -1,0 +1,79 @@
+>>>> Run and record output for **at least 8 commands** (save snippets in your runbook) 
+
+prathamesh@localhost:/home$ pwd
+/home
+prathamesh@localhost:/home$ ls
+devops  prathamesh
+prathamesh@localhost:/home$ cd devops
+prathamesh@localhost:/home/devops$ ls
+prathamesh@localhost:/home/devops$ sudo touch notes.txt
+prathamesh@localhost:/home/devops$ ls
+notes.txt
+prathamesh@localhost:/home/devops$ mv notes.txt prathamesh
+mv: cannot move 'notes.txt' to 'prathamesh': Permission denied
+prathamesh@localhost:/home/devops$ sudo mv notes.txt prathamesh
+prathamesh@localhost:/home/devops$ ls
+prathamesh
+prathamesh@localhost:/home/devops$ ls
+prathamesh
+prathamesh@localhost:/home/devops$ cd prathamesh
+bash: cd: prathamesh: Not a directory
+prathamesh@localhost:/home/devops$ cd ..
+prathamesh@localhost:/home$ ls
+devops  prathamesh
+prathamesh@localhost:/home$ cd prathamesh
+prathamesh@localhost:~$ ls
+Desktop  Documents  Downloads  Music  myworld  Personal  Pictures  Public  Python  snap  Templates  Videos
+prathamesh@localhost:~$ cd Documents
+prathamesh@localhost:~/Documents$ ls
+90DaysOfDevOps  python_practice
+prathamesh@localhost:~/Documents$ cd ..
+prathamesh@localhost:~$ rm -r notes.txt
+rm: cannot remove 'notes.txt': No such file or directory
+prathamesh@localhost:~$ cd myworld
+prathamesh@localhost:~/myworld$ ls
+
+>>>>    **Environment basics (2):** `uname -a`, `lsb_release -a` (or `cat /etc/os-release`)  
+
+Prints all system information in one line:
+Kernel name (Linux)
+Hostname
+Kernel release & version
+Machine hardware (x86_64, arm64, etc.)
+OS/architecture
+
+prathamesh@localhost:~$ uname -a
+Linux localhost 6.14.0-37-generic #37~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 20 10:25:38 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+lsb_release -a or cat /etc/os-release
+
+prathamesh@localhost:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 24.04.3 LTS
+Release:	24.04
+Codename:	noble
+prathamesh@localhost:~$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.3 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+prathamesh@localhost:~$ 
+
+
+>>>>**Filesystem sanity (2):** create a throwaway folder and file, e.g., `mkdir /tmp/runbook-demo`, `cp /etc/hosts /tmp/runbook-demo/hosts-copy && ls -l /tmp/runbook-demo`  
+
+prathamesh@localhost:/tmp$ cp /etc/hosts /tmp/runbook-demo/hosts-copy && ls -l /tmp/runbook-demo
+total 4
+-rw-r--r-- 1 prathamesh prathamesh 259 Jan 31 18:40 hosts-copy
+
+
