@@ -1,0 +1,42 @@
+sudo -s >   to get root access
+cat     >   command to display the content of File
+touch   >   to create File
+mkdir   >   to make directory
+cp      >   to copy File
+cp -r   >   copy directory and content -r is known as recursive 
+mv      >   move File
+rm      >   remove File
+rm -r   >   remove directory
+rmdir   >   remove empty directory
+sudo    >   switch user   
+pwd     >   to check present working directory
+whoami  >   to check the current user
+cd      >   change directory
+passwd  >   to set user password
+useradd >   to add user
+userdel >   to delete user
+chown   >   to change ownership
+chmod   >   to change the permission
+ps -ef  >   to list all processes running 
+ps      >   report a snapshot of current process
+
+
+ping    >   check network connectivity
+ip addr >   show ip address info
+dig     >   DNS lookup tool
+curl    >   transfer data to or from a server
+
+groupadd    >   create a new group
+groupdel    >   delete a group
+groupmod    >   modify a group
+groups      >   show groups a user belongs to
+getent group>   list all groups
+chgrp       >   change group ownership of a file
+usermod -aG group user >     add user to a group
+newgrp      >   switch to a new group
+
+groupadd devops     >    create devops group
+usermod -aG devops alice    >   add user to devops group
+groups alice    >    show alice’s groups
+chgrp devops file.txt   >    change file group
+groupdel devops     >    delete devops group
