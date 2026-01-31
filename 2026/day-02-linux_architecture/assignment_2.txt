@@ -27,6 +27,17 @@
 
     No two process have same PID
 
+    Process States
+    D>  means I/O wait is there on disk or uninteruptable sleep
+    R>  running or ready to run
+    S>  sleeping or it is waiting for event to complete / not getting resources now
+         / uniteruptable sleep you can not kill sleeping process arbitrarily
+    T> stoppped
+    Z> zombie process or defunct process
+        a process which execution is completed but its entry is still present 
+        in process table and these processes contribute to load and they
+        consume resources, the only way to kill/remove them is to reboot the server
+
 
 - What systemd does and why it matters
 >> systemd >> first process which is having PID1
