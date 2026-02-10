@@ -50,24 +50,13 @@ prathamesh@localhost:/home$ cat notes.txt
 prathamesh@localhost:/home$
 ```
 ```
-prathamesh@localhost:/home$ head notes.txt
+prathamesh@localhost:/home$ head -3 notes.txt
 >       My name is prathamesh
 >       i was working for TCS
 >       I am thankful for the opportunity
 
 
-
-
-
-
->>      I have started my next journey with trainwithshubham
-prathamesh@localhost:/home$ tail notes.txt
->       i was working for TCS
->       I am thankful for the opportunity
-
-
-
-
+prathamesh@localhost:/home$ tail -3 notes.txt
 
 
 >>      I have started my next journey with trainwithshubham
