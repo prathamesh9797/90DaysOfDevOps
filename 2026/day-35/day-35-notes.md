@@ -80,7 +80,6 @@ result:
 ```
 large-image-demo   latest   ~1.09GB
 ```
-Write it down for comparison later.
 
 ## Why Is It So Large?
 Because `node:18` includes:
@@ -182,7 +181,6 @@ Multi-stage image size: ~120MB
 Size reduction: ~90%
 ```
 # Why Is the Multi-Stage Image Much Smaller?
-Write something like this in your notes:
 
 **Reason:**
 
