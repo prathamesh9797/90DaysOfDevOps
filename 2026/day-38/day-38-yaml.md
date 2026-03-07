@@ -13,7 +13,7 @@ Create `person.yaml` that describes yourself with:
 
 ```
 name: prathamesh
-role: devops-engiineer
+role: devops-engineer
 experience_years: 2
 learning: true
 ```
@@ -22,7 +22,7 @@ ubuntu@ip-172-31-17-9:~/github-actions/yaml$ vim person.yaml
 ubuntu@ip-172-31-17-9:~/github-actions/yaml$ cat person.yaml
 
 name: prathamesh
-role: devops-engiineer
+role: devops-engineer
 experience_years: 2
 learning: true
 ```
@@ -64,7 +64,12 @@ role: devops-engiineer
 experience_years: 2
 learning: true
 
-tools: [docker,kubernetes,ansible,terraform,aws]
+tools:
+  - docker
+  - kubernetes
+  - ansible
+  - terraform
+  - aws
 hobbies: [cricket, swimming, movies]
 ```
 ---
@@ -92,15 +97,15 @@ ubuntu@ip-172-31-17-9:/github-actions/yaml$ vim server.yaml
 ubuntu@ip-172-31-17-9:~/github-actions/yaml$ cat server.yaml
 
 server:
-  - name: amazon ec2
-  - ip: 44.243.213.152
-  - port: 22
+  name: amazon-ec2
+  ip: 44.243.213.152
+  port: 22
 database:
-  - host: mysql
-  - name: my_database
-  - credentials:
-      - user: prathamesh
-      - password: test@123
+  host: mysql
+  name: my_database
+  credentials:
+    user: prathamesh
+    password: test@123
 
 ```
 ---
@@ -118,23 +123,23 @@ ubuntu@ip-172-31-17-9:~/github-actions/yaml$ vim server.yaml
 ubuntu@ip-172-31-17-9:~/github-actions/yaml$ cat server.yaml
 
 server:
-name: amazon ec2
-ip: 44.243.213.152
-port: 8080
-startup_script_literal: |
+  name: amazon-ec2
+  ip: 44.243.213.152
+  port: 8080
+  startup_script_literal: |
     echo "starting server..."
     systemctl start nginx
     echo "server started"
-startup_script_folded: >
+  startup_script_folded: >
     echo "starting server..."
     systemctl start nginx
     echo "server started"
 database:
-    host: localhost
-    name: app_db
-    credentials:
-        user: admin
-        password: secret123
+  host: localhost
+  name: app_db
+  credentials:
+    user: admin
+    password: secret123
 ```
 #### `|` Literal Block Style
 - **Preserves line breaks exactly as written**
