@@ -148,7 +148,7 @@ Fill this in your notes:
 | Can contain jobs? | Yes | No |
 | Can contain multiple steps? | Yes | Yes |
 | Lives where? | .github/workflows/ | .github/actions/ |
-| Can accept secrets directly? | Yes | No |
+| Can accept secrets directly? | Yes | No (must be passed via inputs) |
 | Best for | Reusing full workflows | Reusing small step groups |
 
 
@@ -161,6 +161,8 @@ Fill this in your notes:
 - Composite action: `action.yml` with `runs: using: "composite"`
 - Reusable workflow outputs: `on: workflow_call: outputs: name: value: ${{ jobs.job-id.outputs.name }}`
 - A reusable workflow can be called by at most 20 unique caller workflows in a single run
+OR
+A workflow can call up to 20 reusable workflows.
 
 ---
 

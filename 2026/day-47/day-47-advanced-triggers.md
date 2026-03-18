@@ -1,15 +1,4 @@
 # Day 47 – Advanced Triggers: PR Events, Cron Schedules & Event-Driven Pipelines
-
-## Task
-You've used `push` and basic `pull_request` triggers. But GitHub Actions supports **dozens of event types** — today you go deep into PR lifecycle events, scheduled cron jobs, and chaining workflows together.
-
----
-
-## Expected Output
-- Multiple workflow files demonstrating advanced triggers
-- A markdown file: `day-47-advanced-triggers.md`
-- At least one scheduled workflow running on your repo
-
 ---
 
 ## Challenge Tasks
@@ -25,6 +14,17 @@ Create `.github/workflows/pr-lifecycle.yml` that triggers on `pull_request` with
 3. Add a conditional step that only runs when the PR is **merged** (closed + merged = true)
 
 Test it: create a PR, push an update to it, then merge it. Watch the workflow fire each time with a different event type.
+
+![image](images/PR-reopened.png)
+
+![image](images/PR-synchronize.png)
+
+![image](images/PR-reopened.png)
+
+![image](images/PR-closed.png)
+
+[PR-Lifecycle.yml](workflows/pr-lifecycle.yml)
+
 
 ---
 
@@ -43,6 +43,14 @@ Create `.github/workflows/pr-checks.yml` — a real-world PR gate:
 
 **Verify:** Open a PR from a badly named branch — does the check fail?
 
+Yes,the branch-name-check job fails
+
+
+
+![image](images/PR-Validation.png)
+
+[PR-Checks.yml](workflows/pr-checks.yml)
+
 ---
 
 ### Task 3: Scheduled Workflows (Cron Deep Dive)
@@ -52,10 +60,21 @@ Create `.github/workflows/scheduled-tasks.yml`:
 3. In the job, print which schedule triggered using `${{ github.event.schedule }}`
 4. Add a step that acts as a **health check** — curl a URL and check the response code
 
+![image](images/scheduled-job.png)
+
+[scheduled-tasks.yml](workflows/scheduled-tasks.yml)
+
 Write in your notes:
-- The cron expression for: every weekday at 9 AM IST
-- The cron expression for: first day of every month at midnight
-- Why GitHub says scheduled workflows may be delayed or skipped on inactive repos
+- The cron expression for: every weekday at 9 AM IST -- 
+   0 3 * * 1-5
+
+- The cron expression for: first day of every month at midnight -- 0 0 1 * *
+
+- Why GitHub says scheduled workflows may be delayed or skipped on inactive repos --
+
+  Scheduled workflows run on shared runners and only on the default branch.
+
+  GitHub may delay/skip schedules on inactive repositories to save resources.
 
 **Important:** Also add `workflow_dispatch` so you can test it manually without waiting for the schedule.
 
@@ -80,7 +99,19 @@ Create `.github/workflows/smart-triggers.yml`:
 3. Add branch filters to only trigger on `main` and `release/*` branches
 4. Test it: push a change to a `.md` file — does the workflow skip?
 
+   Yes, workflow skip
+
+![image](images/smart-triggers.png)
+
+[smart-triggers.yml](workflows/smart-triggers.yml)
+
+[ignore-files.yml](workflows/ignore-files.yml)
+
 Write in your notes: When would you use `paths` vs `paths-ignore`?
+
+Use paths when you want the workflow to run only if specific files or folders change.
+
+Use paths-ignore when the workflow should run for most changes but skip certain files.
 
 ---
 
@@ -100,6 +131,15 @@ Create two workflows:
 
 **Verify:** Push a commit — does the test workflow run first, then trigger the deploy workflow?
 
+Yes,test workflow run first ,then trigger the deploy workflows.
+
+![image](images/tests.png)
+![image](images/deploy.png)
+
+[tests.yml](workflows/tests.yml)
+
+[deploy-after-tests](workflows/deploy-after-tests.yml)
+
 ---
 
 ### Task 6: `repository_dispatch` — External Event Triggers
@@ -107,13 +147,45 @@ Create two workflows:
 2. Set it to respond to event type: `deploy-request`
 3. Print the client payload: `${{ github.event.client_payload.environment }}`
 4. Trigger it using `curl` or `gh`:
-   ```bash
-   gh api repos/<owner>/<repo>/dispatches \
-     -f event_type=deploy-request \
-     -f client_payload='{"environment":"production"}'
-   ```
+```
+```gh api repos/prathamesh9797/github-actions-practice/dispatches \
+  -F event_type=deploy-request \
+  -F client_payload[environment]=production
+```
 
-Write in your notes: When would an external system (like a Slack bot or monitoring tool) trigger a pipeline?
+![image](images/tests.png)
+
+[external-trigger](workflows/external-trigger.yml)
+
+**Write in your notes: When would an external system (like a Slack bot or monitoring tool) trigger a pipeline?**
+
+An external system (like a Slack bot or monitoring tool) would trigger a pipeline when an event outside GitHub needs a workflow to run, such as:
+
+A Slack bot sending a deploy request to start deployment.
+
+A monitoring tool detecting an error and triggering a fix workflow.
+
+One repository finishing work and notifying another repository to run a workflow.
+
+---
+
+**workflow_call**
+
+Makes a workflow reusable, like a function.
+
+One workflow calls another directly.
+
+Can pass inputs and secrets.
+Example: deploy.yml calls test.yml before deploying.
+
+**workflow_run**
+
+Triggers a workflow after another workflow finishes.
+
+Runs automatically based on workflow completion and status.
+
+No input passing.
+Example: deploy.yml runs only after tests succeed.
 
 ---
 
@@ -126,26 +198,3 @@ Write in your notes: When would an external system (like a Slack bot or monitori
 - Path filters use glob patterns — `**` matches nested directories
 
 ---
-
-## Documentation
-Create `day-47-advanced-triggers.md` with:
-- Your workflow YAML files
-- The cron expressions from Task 3
-- Screenshot of the PR checks running on a pull request
-- Explanation of `workflow_run` vs `workflow_call` in your own words
-
----
-
-## Submission
-1. Add `day-47-advanced-triggers.md` to `2026/day-47/`
-2. Commit and push to your fork
-
----
-
-## Learn in Public
-Share your PR validation workflow on LinkedIn — automated PR gates are a real DevOps flex.
-
-`#90DaysOfDevOps` `#DevOpsKaJosh` `#TrainWithShubham`
-
-Happy Learning!
-**TrainWithShubham**
