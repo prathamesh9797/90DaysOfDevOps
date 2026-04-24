@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-demo
+  labels:
+    app: nginx   # IMPORTANT
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      periodSeconds: 5
