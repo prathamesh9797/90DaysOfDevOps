@@ -172,6 +172,8 @@ A startup probe gives slow-starting containers extra time. While it runs, livene
 2. Add a `startupProbe` checking for `/tmp/started` with `periodSeconds: 5` and `failureThreshold: 12` (60 second budget)
 3. Add a `livenessProbe` that checks the same file — it only kicks in after startup succeeds
 
+![images](images/Screenshot%20from%202026-04-24%2010-28-38.png)
+
 **Verify:** What would happen if `failureThreshold` were 2 instead of 12?
 
 - If failureThreshold is set to 2,the startup probe allows only 10 seconds (2 × 5s) for the container to start.
