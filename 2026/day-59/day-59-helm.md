@@ -179,17 +179,21 @@ helm install my-app ./my-chart -f values.yaml
 
 `Method 1: values.yaml`
 
+```yaml
 replicaCount: 3
 
 image:
   repository: nginx
   tag: "1.25"
+```
 
 `Method 2: CLI Override`
 
+```bash
 helm install my-app ./my-chart \
   --set replicaCount=5 \
   --set image.tag=latest
+```
 
 3. `upgrade`
 
@@ -199,7 +203,7 @@ Helm tracks changes and applies only diffs.
 
 4. `Rollback`
 
-```helm rollback my-app 1````
+```helm rollback my-app 1```
 
 `Check revisions:`
 
